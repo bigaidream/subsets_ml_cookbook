@@ -1,3 +1,3 @@
 # Summary
 
-* [Scientific Programming](scientific_programming/chapter1.md)
+* [Scientific Programming](scientific_programming/loop.md)
