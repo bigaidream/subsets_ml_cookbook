@@ -1,3 +1,6 @@
-# Scientific Programming
+# Loop
 
-GitBook allows you to organize your book into chapters, each chapter is stored in a separate file like this one.
+
+##
+$$\mathrm{sin}(x)\approx x-\frac{x^{3}}{3!}+\frac{x^{5}}{5!}-\frac{x^{7}}{7!}+...$$
+
