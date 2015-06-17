@@ -1,8 +1,7 @@
 {
     "plugins": [
         "mathjax",
-        "toc",
-        "gtoc"
+        "toc"
     ],
     "pluginsConfig": {}
 }
