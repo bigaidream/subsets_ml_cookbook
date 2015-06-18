@@ -5,4 +5,3 @@
     * [Gaussian Processes](bayes/gp/README.md)
         * [GPy Tutorial](bayes/gp/gpy_tutorial.md)
         * [Coregionalized Regression with GPy](bayes/gp/coregionalized_regression_gpy.md)
-        * 
