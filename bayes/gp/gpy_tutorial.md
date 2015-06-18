@@ -1,5 +1,4 @@
 <!-- toc -->
-
 # GPy tutorial
 
 ## Basics
