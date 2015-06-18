@@ -32,7 +32,7 @@ Yt1 = f_output1(Xt1)
 Yt2 = f_output2(Xt2)
 ```
 Two datasets look like this:
-![Alt text](./multi_gp_data.png)
+![GP Data](./coregionalized_regression_gpy_image/multi_gp_data.png)
 
 ---
 A multiple output kernel is defined and optimized as:
@@ -61,7 +61,7 @@ m['.*W'].constrain_fixed(0)
 m.optimize()
 ```
 
-![Alt text](./multi_GP_only_mean.png)
+![Alt text](./coregionalized_regression_gpy_image/multi_GP_only_mean.png)
 
 ### Mean & Linear Trend (LCM)
 ${\bf K}_{LCM} = {\bf B}_1 \otimes {\bf K}_{Bias} + {\bf B}_2 \otimes {\bf K}_{Linear}$.
@@ -77,7 +77,7 @@ m['.*W'].constrain_fixed(0)
 m['.*linear.var'].constrain_fixed(1.)
 m.optimize()
 ```
-![Alt text](./LCM.png)
+![Alt text](./coregionalized_regression_gpy_image/LCM.png)
 
 ### Full model with Matern32 kernel
 
@@ -96,7 +96,7 @@ m['.*ICM1.*W'].constrain_fixed(0)
 m.optimize()
 ```
 
-![Alt text](./matern32_full.png)
+![Alt text](./coregionalized_regression_gpy_image/matern32_full.png)
 
 
 ## Prediction at new input values
