@@ -4,5 +4,9 @@
         "toc",
         "disqus"
     ],
-    "pluginsConfig": {}
+    "pluginsConfig": {
+            "disqus": {
+        "shortName": "bigaidream"
+    }
+    }
 }
