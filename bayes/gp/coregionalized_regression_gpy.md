@@ -50,7 +50,7 @@ print m
 The data from both outputs is not centered on zero. A way of dealing with outputs of different means or magnitudes is using a `bias kernel`. This kernel is just changing the mean (constant) of the Gaussian Process being fitted. 
 
 ### Only Mean (ICM)
-There is no need to assume any sort of correlation between both means, so we can define ${\bf W} = {\bf 0}$. 
+There is no need to assume any sort of correlation between both means, so we can define $${\bf W} = {\bf 0}$$. 
 
 ```python
 kernel = GPy.util.multioutput.ICM(input_dim=1,num_outputs=2,kernel=GPy.kern.Bias(input_dim=1))
