@@ -64,7 +64,7 @@ m.optimize()
 ![Alt text](./coregionalized_regression_gpy_image/multi_GP_only_mean.png)
 
 ### Mean & Linear Trend (LCM)
-${\bf K}_{LCM} = {\bf B}_1 \otimes {\bf K}_{Bias} + {\bf B}_2 \otimes {\bf K}_{Linear}$.
+$${\bf K}_{LCM} = {\bf B}_1 \otimes {\bf K}_{Bias} + {\bf B}_2 \otimes {\bf K}_{Linear}$$.
 
 ```python
 K1 = GPy.kern.Bias(1)
