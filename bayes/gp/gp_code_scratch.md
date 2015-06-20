@@ -14,9 +14,9 @@ The basic procedure: compute the covariance matrix of the training data, and als
 
 > [*Machine Learning: An Algorithmic Perspective*, 2014], p402
 
-We use `np.linalg` to decompose a real-valued , symmetric and positive definite matrix $\mathbf{K}$ into the product $\mathbf{LL}^{T}$, where $\mathbf{L}$ is a lower triangular matrix that only has non-zeros entries on and below the leading diagonal. It follows that $\mathbf{K}^{-1}=\mathbf{L}^{-T}\mathbf{L}^{-1}$. 
+We use `np.linalg` to decompose a real-valued , symmetric and positive definite matrix $$\mathbf{K}$$ into the product $$\mathbf{LL}^{T}$$, where $$\mathbf{L}$$ is a lower triangular matrix that only has non-zeros entries on and below the leading diagonal. It follows that $$\mathbf{K}^{-1}=\mathbf{L}^{-T}\mathbf{L}^{-1}$$. 
 
-To solve $\mathbf{LL}^{T}x=t$, we first use `forward substitution` to find the $z$ that solves $\mathbf{Lz}=\mathbf{t}$. Then we use `back-substitution` to find the x that solves $\mathbf{L}^{T}x=z$. 
+To solve $$\mathbf{LL}^{T}x=t$$, we first use `forward substitution` to find the $$z$$ that solves $$\mathbf{Lz}=\mathbf{t}$$. Then we use `back-substitution` to find the x that solves $$\mathbf{L}^{T}x=z$$. 
 
 > [*Gaussian Processes for Machine Learning*, 37, GP pseudo-code]
 
