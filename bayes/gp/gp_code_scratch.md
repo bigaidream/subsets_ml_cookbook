@@ -42,6 +42,11 @@ $$\sigma_{f}$$ is the signal variance, that controls the overall variance of the
 
 The squared exponential covariance matrix has three hyperparameters $$(\sigma_{f},\sigma_{n},l)$$ that need to be selected. 
 
+If the set of hyperparameters are labelled as $\theta$ then the ideal solution to this problem would be to set up some kind of prior distribution over the hyperparameters and then integrate them out in order to maximize the probability of the output targets:
+
+$$P(t^{*}|x,t,x^{*})=\int P(t^{*}|x,t,x^{*},\theta)P(\theta|x,t)d\theta$ $
+
+
 > [*Machine Learning: An Algorithmic Perspective*], p404
 
 ```python
