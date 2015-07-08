@@ -1,6 +1,8 @@
 # Summary
 
-* [Scientific Programming](scientific_programming/loop.md)
+* [Scientific Programming](scientific_programming/README.md)
+	* [Loop](scientific_programming/loop.md)
+	* [Function and Branching](scientific_programming/function.md)
 * [Bayesian Learning](bayes/README.md)
     * [Gaussian Processes](bayes/gp/README.md)
         * [GPy Tutorial](bayes/gp/gpy_tutorial.md)
