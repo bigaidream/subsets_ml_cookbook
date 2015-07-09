@@ -57,4 +57,10 @@ where $$h$$ is a small number. The Python code is:
 def diff2nd(f, x, h=1E-6):
 	r = (f(x-h) - 2*f(x) + f(x+h))/float(h*h)
 	return r
+
+def g(t):
+	return t**(-6)
+
+t = 1.2
+d2g = diff2nd(g, t)
 ```
