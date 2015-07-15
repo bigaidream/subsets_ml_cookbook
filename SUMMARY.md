@@ -5,6 +5,7 @@
 	* [Function and Branching](scientific_programming/function.md)
 	* [File and Error Handling](scientific_programming/file_error_handling.md)
 	* [Array and Curve Fitting](scientific_programming/array.md)
+	* [Dictionaries and Strings](scientific_programming/dictionary_string.md)
 * [Bayesian Learning](bayes/README.md)
     * [Gaussian Processes](bayes/gp/README.md)
         * [GPy Tutorial](bayes/gp/gpy_tutorial.md)
