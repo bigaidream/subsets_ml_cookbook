@@ -49,3 +49,49 @@ Then `p2` is
 {0: 0.0, 1: 0.0, 2: 8, -2: 0.0}
 ```
 ---
+
+### Ordered Dicitonary
+One simple solution is to use `sorted` function:
+```python
+p1 = {-3: 2, -1: -1.5, 2: -2}
+for key in sorted(p1):
+	print(key, p1[key])
+```
+
+It will show:
+```python
+-3  2
+-1  -1.5
+2  -2
+```
+
+However, Python features a dictionary type, `OrderedDict`:
+```python 
+from collections import OrderedDict
+p2 = OrderedDict({-3: 2, -1: -1.5, 2: -2})
+print(p2)
+```
+
+## Strings
+
+Strings are constant. 
+
+---
+
+One can easily test if a string contains digits only or not:
+```python
+'214'.isdigit()
+```
+
+**Whitespace**
+We can check if a string contains spaces `only` by calling the `isspace` method. In fact, it checks `space characeter`, `newline`, or the `TAB` character. 
+
+---
+
+The opposite of the `split` method is `join`, for example:
+```python
+line = 'This is a line of words separated by space'
+words = line.split()
+line2 = ' '.join(words[2:])
+```
+
