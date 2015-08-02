@@ -7,4 +7,6 @@
         * [GP Implementation from Scratch](/bayes/gp/gp_code_scratch.md)
 
 * [Deep Learning](dl/README.md)
+	* [Theano Related](dl/theano/README.md)
+		* [Theano Tutorial](dl/theano/theano_tutorial.md)
 	* [Book: Neural Networks and Deep Learning](dl/book_nn_dl/book_nn_dl.md)
