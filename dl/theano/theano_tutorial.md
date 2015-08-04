@@ -138,6 +138,7 @@ The graph can be traversed starting from outputs (the result of some computation
 `tensor.grad()` will traverse the graph from the outputs back towards the inputs through all `apply` nodes (`apply` nodes are those that define which computations the graph does). For each such `apply` node, its `op` defines how to compute the `gradient` of the node's outputs with respect to its inputs. 
 
 ## Derivatives in Theano
+### Computing the gradient
 Say we want to compute $$d(x^2)/dx = 2 \cdot x$$ :
 ```python
 from theano import pp
@@ -145,5 +146,32 @@ x = T.fscalar('x')
 y = x ** 2
 gy = T.grad(y, x)
 print(pp(gy))
+f = function([x], gy)
 ```
 From `print(pp(gy))` we can see that `fill((x ** TensorConstant{2}), TensorConstant{1.0})`, which means to make a matrix of the same shame as `x**2` and fill it with `1.0`. 
+
+### Computing the Jacobian
+`Jacobian` designates the tensor comprising the first partial derivatives of the output of a function with respect to its inputs. `theano.gradient.jacobian()` will do it automatically
+
+## Loop (TODO)
+It seems that for normal constructions of deep neural networks, we don't need to explicitly use `theano.scan`. Thus I'm skipping this part for now. 
+
+### Simple loop with accumulation: computing $$A^{k}$$
+Given k we want to get `A**k` using a loop:
+```python
+result = 1
+for i in xrange(k):
+	result = result * A
+```
+There are three things to notice: the initial value assigned to `result`, the accumulation of results in `result`, and the unchanging variable `A`. Unchanging variables are passed to `scan` as `non_sequences`. Initialization occurs in `outputs_info`, and the accumulation happens automatically. 
+
+The equivalent Theano code is:
+```python
+k = T.iscalar('k')
+A = T.vector('A')
+
+result, updates = theano.scan(fn=lambda prior_result, A: prior_result * A,
+                              outputs_info=T.ones_like(A),
+                              non_sequences=A,
+                              n_steps=k)
+```
