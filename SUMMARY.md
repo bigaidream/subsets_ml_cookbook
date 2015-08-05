@@ -9,4 +9,5 @@
 * [Deep Learning](dl/README.md)
 	* [Theano Related](dl/theano/README.md)
 		* [Theano Tutorial](dl/theano/theano_tutorial.md)
+		* [Theano for Deep Learning, Getting Started](dl/theano/theano_dl_started.md)
 	* [Book: Neural Networks and Deep Learning](dl/book_nn_dl/book_nn_dl.md)
