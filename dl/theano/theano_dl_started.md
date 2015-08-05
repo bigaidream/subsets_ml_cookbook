@@ -47,34 +47,14 @@ label = train_set_y[2 * batch_size: 3 * batch_size]
 
 ### Learning a classifier
 #### Zero-One Loss
-If $$f: R^D \rightarrow
-\{0,...,L\}$$ is the prediction function, then the loss is 
 
-$$\ell_{0,1} = \sum_{i=0}^{|\mathcal{D}|} I_{f(x^{(i)}) \neq y^{(i)}}$$
-
-where $$\mathcal{D}$$ is the training set, $$I$$ is the indicator function:
-
-$$$$    I_x = \left\{\begin{array}{ccc}
-          1&\mbox{ if $$x$$ is True} \\
-          0&\mbox{ otherwise}\end{array}\right.$$$$
-
-In the tutorial, $$f$$ is defined as : $$f(x) = {\rm argmax}_k P(Y=k | x, \theta)$$. 
-
-The corresponding code is:
 ```python
 zero_one_loss = T.sum(T.neq(T.argmax(p_y_given_x), y))
 ```
 #### Negative Log-Likelihood Loss
 Since the zero-one loss is not differentiable, optimizing it for large models (thousands or millions of parameters) is prohibitively expensive (computationally). We thus usually maximize the log-likelihood of our classifier given all the labels in a training set.
 
-$$\mathcal{L}(\theta, \mathcal{D}) =
-        \sum_{i=0}^{|\mathcal{D}|} \log P(Y=y^{(i)} | x^{(i)}, \theta)$$
 
-Since we usually speak in terms of minimizing a loss function, learning will
-thus attempt to **minimize** the **negative** log-likelihood (NLL), defined
-as:
-
-$$NLL(\theta, \mathcal{D}) = - \sum_{i=0}^{|\mathcal{D}|} \log P(Y=y^{(i)} | x^{(i)}, \theta)$$
 
 The `NLL` of our classifier is a differentiable **surrogate** for the `zero-one loss`. The code is:
 ```python
