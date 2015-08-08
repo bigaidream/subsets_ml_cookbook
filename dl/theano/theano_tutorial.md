@@ -153,10 +153,9 @@ From `print(pp(gy))` we can see that `fill((x ** TensorConstant{2}), TensorConst
 ### Computing the Jacobian
 `Jacobian` designates the tensor comprising the first partial derivatives of the output of a function with respect to its inputs. `theano.gradient.jacobian()` will do it automatically
 
-## Loop (TODO)
-It seems that for normal constructions of deep neural networks, we don't need to explicitly use `theano.scan`. Thus I'm skipping this part for now. 
+## Loop
 
-### Simple loop with accumulation: computing $$A^{k}$$
+### Simple loop with accumulation: computing $A^{k}$
 Given k we want to get `A**k` using a loop:
 ```python
 result = 1
@@ -170,8 +169,63 @@ The equivalent Theano code is:
 k = T.iscalar('k')
 A = T.vector('A')
 
-result, updates = theano.scan(fn=lambda prior_result, A: prior_result * A,
-                              outputs_info=T.ones_like(A),
-                              non_sequences=A,
-                              n_steps=k)
+result, updates = theano.scan(fn=lambda prior_result, A: prior_result * A, outputs_info=T.ones_like(A), non_sequences=A, n_steps=k)
+# We only care about A**k, but scan has provided us with A**1 through A**k.
+# Discard the values that we don't care about. Scan is smart enough to
+# notice this and not waste memory saving them.
+final_result = result[-1]
+
+# compiled function that returns A**k
+power = theano.function(inputs=[A,k],
+		outputs=final_result, updates=updates)
+
+print(power(range(10),2))
+print(power(range(10),4))
 ```
+Within `theano.scan`, the order of parameters to `fn` is fixed: the output of the prior call to `fn`(or the initial value, initially) is the first parameter, followed by all `non-sequences`. 
+
+Next we initialize the output as a tensor with the same shape and dtype as `A`, filled with ones. We give `A` to `scan` as a `non-sequences` parameter and specify the number of steps `k` to iterate over our lambda expression. 
+
+`theano.scan` returns a tuple containing our result (`result`) and a dictionary of updates (empty in this case). The result is a 3D tensor containing the value of `A**k` for each step. We want the last value so we compile a function to return just that. Due to the internal optimization, we don't have to worry if `A` or `k` is large. 
+
+### Iterating over the first dimension of a tensor: Calculating a polynomial
+
+`theano.scan` can iterate over the leading dimension of tensors (similar to `for x in a_list`). 
+
+The tensor to be looped over should be provided to `scan` using the `sequence` keyword argument. 
+
+Here’s an example that builds a symbolic calculation of a polynomial from a list of its coefficients:
+```python
+coefficients = theano.tensor.vector("coefficients")
+x = T.scalar("x")
+
+max_coefficients_supported = 10000
+
+# Generate the components of the polynomial
+components, updates = theano.scan(fn=lambda coefficient, power, free_variable: coefficient * (free_variable ** power),
+                                  outputs_info=None,
+                                  sequences=[coefficients, theano.tensor.arange(max_coefficients_supported)],
+                                  non_sequences=x)
+# Sum them up
+polynomial = components.sum()
+
+# Compile a function
+calculate_polynomial = theano.function(inputs=[coefficients, x], outputs=polynomial)
+
+# Test
+test_coefficients = numpy.asarray([1, 0, 2], dtype=numpy.float32)
+test_value = 3
+print calculate_polynomial(test_coefficients, test_value)
+print 1.0 * (3 ** 0) + 0.0 * (3 ** 1) + 2.0 * (3 ** 2)
+```
+
+There is no accumulation of results, we can set `outputs_info` to `None`. This indicates to `scan` that it doesn't need to pass the prior result to `fn`.
+
+The general order of function parameters to `fn` is:
+
+> sequences (if any), prior result(s) (if needed), non-sequences (if any)
+
+In `sequences=[coefficients,T.arange(max_coefficients_supported)]`, `scan` will truncate to the **shortest** of them. 
+
+### Simple accumulation into a scalar, ditching lambda
+The following example stresses a pitfall to be careful: the initial `outputs_info` must be of a **shape similar to that of the output variable** generated at each iteration and moreover, it **must not involve an implicit downcast** of the latter. 
