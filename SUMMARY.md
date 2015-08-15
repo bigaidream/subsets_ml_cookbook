@@ -11,5 +11,5 @@
 		* [Theano Tutorial](dl/theano/theano_tutorial.md)
 		* [Theano for Deep Learning, Getting Started](dl/theano/theano_dl_started.md)
 		* [Theano Classifying MNIST using Logistic Regression](dl/theano/theano_classify_logistic.md)
-		* [Theano, Keras for Regression and Time-Series](dl/theano/theano_keras_regression.md)
+		* [Theano, Keras for Sequence to Sequence Learning](dl/theano/theano_keras_sequence2sequence.md)
 	* [Book: Neural Networks and Deep Learning](dl/book_nn_dl/book_nn_dl.md)
