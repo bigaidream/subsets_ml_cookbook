@@ -13,3 +13,6 @@
 		* [Theano Classifying MNIST using Logistic Regression](dl/theano/theano_classify_logistic.md)
 		* [Theano, Keras for Sequence to Sequence Learning](dl/theano/theano_keras_sequence2sequence.md)
 	* [Book: Neural Networks and Deep Learning](dl/book_nn_dl/book_nn_dl.md)
+
+* [Python Tools for Learning]
+	* [Hyperopt with Sklearn](py_tools/hyperopt_sklearn.md)
