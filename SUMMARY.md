@@ -16,4 +16,4 @@
 
 * [Python Tools for Learning]
 	* [Hyperopt with Sklearn](py_tools/hyperopt_sklearn.md)
-	* [Neon with Spearmint](py_toos/neon_spearmint.md)
+	* [Neon with Spearmint](py_tools/neon_spearmint.md)
