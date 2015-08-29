@@ -1,4 +1,4 @@
-<!-- toc-->
+<!-- toc -->
 
 
 # Neon with Spearmint for Hyperparameter Optimization
@@ -35,11 +35,13 @@ If we take a look at `spear_config.pb`, it reads:
 ```
 name: "neon.hyperopt.gen_yaml_and_run"
 ```
-It seems that in order to modify it to tune other learning algorithms, I need to modify `neon.hyperopt.gen_yaml_and_run`. 
+It seems that in order to modify it to tune other learning algorithms, say `keras`, I need to modify `neon.hyperopt.gen_yaml_and_run`. 
 
 ## Debugging Neon and Spearmint within Python
-In `Pycharm`, I set `script parameters` to be `--driver=local --method=GPEIOptChooser --method-args=noiseless=0 --polling-time=20 --max-concurrent=2 -w --port=50000 /home/jie/Documents/hyperopt_experiment/spear_config.pb`, thus it is easy to debug, e.g. setting break-points. 
+In `Pycharm`, I set `script parameters` of `/spearmin/spearmint/main.py` to be `--driver=local --method=GPEIOptChooser --method-args=noiseless=0 --polling-time=20 --max-concurrent=2 -w --port=50000 /home/jie/Documents/hyperopt_experiment/spear_config.pb`, thus it is easy to debug, e.g. setting break-points. 
 
+> Of course, I can attach `Pycharm` to a running python process, but it's not that convenient. As far as I know, there is no easy way to attach the python process at the very beginning. 
 
+## `gen_yaml_and_run.py` 
 
-
+`gen_yaml_and_run.py` seems to be the main modification made by `neon` to work with `spearmint`. 
