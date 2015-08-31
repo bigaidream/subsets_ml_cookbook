@@ -17,3 +17,5 @@
 * [Python Tools for Learning]
 	* [Hyperopt with Sklearn](py_tools/hyperopt_sklearn.md)
 	* [Neon with Spearmint](py_tools/neon_spearmint.md)
+	* [Data Manipulation]
+		* [Simple Getting and Working with Data](py_tools/data_manipulation/simple_getting_working_data.md)
