@@ -1,6 +1,5 @@
 <!-- toc -->
 
-
 # Neon with Spearmint for Hyperparameter Optimization
 
 > start: 28 August, 2015
@@ -10,6 +9,10 @@ I've been trying to install `neon` on my machines (one with Intel i7, 32G RAM, N
 > It's very weird that Ubuntu `14.04.3` does NOT work with Nvidia GT 630 and CUDA 7.0, in that after installing CUDA 7.0, Ubuntu cannot boot normally. However, it works well with Ubuntu `14.04.2`, which is why I use slightly different Ubuntu versions on two machines. 
 
 It should be noted that `theano` works just fine on my machines. In order to make hyperparameter tuning practical, I'm forced to use CPU mode and run it on a **HUGE** CPU cluster. Luckily, I was awarded some Microsoft Azure computing resources.  
+
+> update: 6 September, 2015
+> I can now work with Docker `cudanet` mode. It can only work with CUDA 7.0 with driver version 346.46
+
 
 ## Entry point
 
@@ -22,6 +25,10 @@ We can run:
 bash -x spearmint
 ```
 This will show how the `spearmint.sh` actually runs, i.e. every step it takes. It turns out that it calls `/spearmint/spearmint/main.py`. 
+
+---
+
+One caveat for me is the `import` of `spearmint` in Pycharm and in terminal mode. 
 
 ## How Spearmint runs
 
@@ -45,3 +52,22 @@ In `Pycharm`, I set `script parameters` of `/spearmin/spearmint/main.py` to be `
 ## `gen_yaml_and_run.py` 
 
 `gen_yaml_and_run.py` seems to be the main modification made by `neon` to work with `spearmint`. 
+
+## Modification for CIFAR-10 Experiments
+### Dataset
+I copy 3 out of 5 batches into the `~/data` folder. Accordingly, I also modify `/neon/neon/datasets/cifar10.py`, such that it only iterate over 3 batches (remember to delete the associated `pyc` file). 
+
+### Enable GPU manually
+In `/neon/bin/neon`, I add `args.gpu = 'cudanet'` in `main()`.  Due to the setting of the docker image, I need to do `python setup.py develop` in the `neon` folder. 
+
+
+### Path
+```bash
+export SPEARMINT_PATH=/mnt/d2/github/incremental_bo/spearmint/bin
+export HYPEROPT_PATH=/mnt/d2/github/hyperopt_experiment
+```
+
+### Docker
+```
+docker run -v /home/jie/docker_folder:/mnt -it --device /dev/nvidiactl:/dev/nvidiactl --device /dev/nvidia-uvm:/dev/nvidia-uvm --device /dev/nvidia0:/dev/nvidia0 kaixhin/cudanet-neon
+```
