@@ -55,7 +55,7 @@ In `Pycharm`, I set `script parameters` of `/spearmin/spearmint/main.py` to be `
 
 ## Modification for CIFAR-10 Experiments
 ### Dataset
-I copy 3 out of 5 batches into the `~/data` folder. Accordingly, I also modify `/neon/neon/datasets/cifar10.py`, such that it only iterate over 3 batches (remember to delete the associated `pyc` file). 
+I randomly subsample 50% of the training samples by setting `sample_pct: 50` in `yaml` file, and also manually setting `np.random.seed()`. 
 
 ### Enable GPU manually
 In `/neon/bin/neon`, I add `args.gpu = 'cudanet'` in `main()`.  Due to the setting of the docker image, I need to do `python setup.py develop` in the `neon` folder. 
