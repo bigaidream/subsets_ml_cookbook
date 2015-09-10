@@ -104,3 +104,5 @@ def pluck(field_name, rows):
 ```
 This trick for using `map` is clever. 
 
+### Rescaling
+When dimensions are not comparable with one another, we will sometimes *rescale* our data so that each dimension has mean 0 and standard deviation 1. This effectively gets rid of the units, converting each dimension to `standard deviations from the mean`. 
