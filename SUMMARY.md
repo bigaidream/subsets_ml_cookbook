@@ -5,9 +5,8 @@
         * [GPy Tutorial](bayes/gp/gpy_tutorial.md)
         * [Coregionalized Regression with GPy](bayes/gp/coregionalized_regression_gpy.md)
         * [GP Implementation from Scratch](bayes/gp/gp_code_scratch.md)
-	* [R]
+	* [R Language]
 		* [JAGS with R tutorial](bayes/r/jags_tutorial.md)
-
 
 * [Deep Learning](dl/README.md)
 	* [Theano Related](dl/theano/README.md)
