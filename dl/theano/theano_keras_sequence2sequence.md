@@ -9,11 +9,9 @@ Due to my current research projects and Kaggle competition (EEG classification),
 ## Regression
 According to [*Sequence to sequence learning with neural networks*, NIPS 2014], `sequence2sequence` learning can be seen as an `encoder-decoder` architecture. I'd start from a regression task.
 
-The base code is from http://www.danielhnyk.cz/blog/view/predicting-sequences-vectors-keras-using-rnn-lstm. However, as in `2015-August-12`, there seems to be some typos and the explanation is a bit confusing. 
+The base code is from http://danielhnyk.cz/predicting-sequences-vectors-keras-using-rnn-lstm/. 
 
-> My slightly modified code is here: https://github.com/ml-playground/keras/blob/master/playground/lstm_regression.py
-
-It can be seen from https://github.com/ml-playground/keras/blob/master/playground/lstm_regression.py#L32-L33, that, the `X_train` are data points during `i:i+n_prev` time steps, the `y_train` are `2` data points in `i+n_prev` time steps. 
+The `X_train` are data points during `i:i+n_prev` time steps, the `y_train` are `2` data points in `i+n_prev` time steps. 
 
 The data representation techniques can be found here: http://deeplearning.net/tutorial/rnnslu.html#context-window
 
