@@ -16,6 +16,8 @@
 		* [Theano, Keras for Sequence to Sequence Learning](dl/theano/theano_keras_sequence2sequence.md)
 		* [Theano, Lasagne Tutorial](dl/theano/theano_lasagne_tutorial.md)
 	* [Book: Neural Networks and Deep Learning](dl/book_nn_dl/book_nn_dl.md)
+	* [General]
+		* [MLP, ML Algorithmic Perspective](dl/general/mlp_ml_algo_perspective.md)
 
 * [Python Tools for Learning]
 	* [Hyperopt with Sklearn](py_tools/hyperopt_sklearn.md)
