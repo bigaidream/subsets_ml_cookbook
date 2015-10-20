@@ -58,3 +58,17 @@ Numpy defaults to lists for arrays that are `Nx1`:
 (40,1)
 ```
 
+## Recipe for using MLP
+
+### Select inputs and outputs for your problem
+
+### Normalize inputs
+Rescale the data by subtracting the mean value from each element of the input vector, and divide by the variance (or alternatively, either the maximum or minus the minimum, whichever is greater)
+
+### Split the data into training, testing, and validation sets
+
+### Select a network architecture
+
+### Train a network
+
+### Test the network
