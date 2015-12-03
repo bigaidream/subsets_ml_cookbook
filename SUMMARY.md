@@ -24,3 +24,5 @@
 	* [Neon with Spearmint](py_tools/neon_spearmint.md)
 	* [Data Manipulation]
 		* [Simple Getting and Working with Data](py_tools/data_manipulation/simple_getting_working_data.md)
+	* [Test-Driven Machine Learning]
+		* [Introduction to TDD, Chapter 1](py_tools/tdd_ml/intro.md)
