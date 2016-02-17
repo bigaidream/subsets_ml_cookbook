@@ -11,6 +11,7 @@
 * [Deep Learning](dl/README.md)
 	* [Lua/Torch Related](dl/lua/README.md)
 		* [Lua Supervised Learning](dl/lua/lua_supervised.md)
+		* [Understanding Neural Net Module with Lua](dl/lua/lua_module.md)
 	* [Theano Related](dl/theano/README.md)
 		* [Theano Tutorial](dl/theano/theano_tutorial.md)
 		* [Theano for Deep Learning, Getting Started](dl/theano/theano_dl_started.md)
