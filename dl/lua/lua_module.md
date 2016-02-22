@@ -12,6 +12,10 @@
 
 `module`s contain two states variables: `output` and `gradInput`. 
 
+### Understanding `back-propagation`
+
+For really understanding *back-propagation*, a good reference is http://neuralnetworksanddeeplearning.com/chap2.html
+
 ### [output] forward(input)
 Takes an input object, and computes the corresponding output of the module. 
 
