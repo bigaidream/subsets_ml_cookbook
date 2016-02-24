@@ -8,6 +8,10 @@
 	* [R Language]
 		* [JAGS with R tutorial](bayes/r/jags_tutorial.md)
 
+* [Reinforcement Learning](rl/README.md)
+	* [Reinforcement Learning, an Introduction, Ch3](rl/rl_introduction_ch3.md)
+
+
 * [Deep Learning](dl/README.md)
 	* [Lua/Torch Related](dl/lua/README.md)
 		* [Lua Supervised Learning](dl/lua/lua_supervised.md)
