@@ -14,7 +14,13 @@
 
 ### Understanding `back-propagation`
 
+
 For really understanding *back-propagation*, a good reference is http://neuralnetworksanddeeplearning.com/chap2.html
+
+Other good references (though written in Python) are: http://iamtrask.github.io/2015/07/12/basic-python-network/
+
+https://iamtrask.github.io/2015/07/27/python-network-part2/
+
 
 ### [output] forward(input)
 Takes an input object, and computes the corresponding output of the module. 
