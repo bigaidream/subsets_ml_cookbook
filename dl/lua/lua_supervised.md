@@ -8,13 +8,17 @@ Date = "2016-01-30"
 
 I still love Python, but it's really painful to debug in Theano. I will probably rewrite my Python code used in http://arxiv.org/abs/1601.00917 using Torch/Lua. Also there are some good reinforcement learning libraries written in Torch/Lua. 
 
-I prefer Eclipse for Lua/Torch. It seems that for Eclipse to debug Luajit data correctly, we have to use `require 'debugger.plugins.ffi'`.
+~~I prefer Eclipse for Lua/Torch. It seems that for Eclipse to debug Luajit data correctly, we have to use `require 'debugger.plugins.ffi'`.~~
+
+> '2016-03-12', it turns out that Intellij IDEA is better. For Lua code with Torch, Eclipse sometimes cannot set breakpoints successfully. My current best practice is to write code in Intellij IDEA and use [fblualib-debugger](https://github.com/facebook/fblualib/tree/master/fblualib) to debug. 
 
 This note is based on: https://github.com/torch/tutorials/tree/master/2_supervised
 
 ## Data
 
  > http://code.madbits.com/wiki/doku.php?id=tutorial_supervised_1_data
+
+Global variables are used a lot in the tutorials. 
 
 `slicing` operation tutorial can be found here: https://github.com/torch/tutorials/blob/master/2_supervised/A_slicing.lua
 
@@ -30,7 +34,7 @@ t4[{ {}, 2}] = t2[{ {}, 5}]
 ## Model
  > http://code.madbits.com/wiki/doku.php?id=tutorial_supervised_2_model
 
-The construction of models is pretty similar to Keras. 
+The construction of models is pretty similar to Keras. In fact, Torch is the teacher of Keras. 
 
 One neat way to get the weights is:
 ```lua
