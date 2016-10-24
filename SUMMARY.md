@@ -13,6 +13,8 @@
 
 
 * [Deep Learning](dl/README.md)
+	* [TensorFlow Related](dl/tf/README.md)
+		* [Debugging](dl/tf/debugging.md)
 	* [Lua/Torch Related](dl/lua/README.md)
 		* [Lua Supervised Learning](dl/lua/lua_supervised.md)
 		* [Understanding Neural Net Module with Lua](dl/lua/lua_module.md)
